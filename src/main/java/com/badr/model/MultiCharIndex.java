@@ -48,11 +48,4 @@ public class MultiCharIndex {
             }
         }
     }
-
-    private class AlphabetIndex {
-
-        public void put(Character c, String word) {
-
-        }
-    }
 }
