@@ -37,4 +37,11 @@ public class AlphabetIndex {
 
         return words;
     }
+
+    public Set<String> getAll(Character c) {
+        if (!characterToWordsIndex.containsKey(c)) {
+            return new TreeSet<String>();
+        }
+        return getWords(c);
+    }
 }
