@@ -16,12 +16,9 @@ public class MultiCharIndex {
 
     private List<AlphabetIndex> charactersIndexes;
 
-    final int LONGEST_POSSIBLE_LENGTH = 45;
-
     public MultiCharIndex(int length, List<String> words) {
-        if (length < 1 || length > LONGEST_POSSIBLE_LENGTH) {
-            throw new IllegalArgumentException("Illegal value for length: " + length + ". length should be between " +
-                    "1 and " + LONGEST_POSSIBLE_LENGTH);
+        if (length < 1) {
+            throw new IllegalArgumentException("Illegal value for length: " + length + ". length should be non zero");
         }
         if (words == null) {
             throw new IllegalArgumentException("words may not be null");
