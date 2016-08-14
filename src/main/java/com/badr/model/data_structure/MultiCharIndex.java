@@ -55,6 +55,12 @@ public class MultiCharIndex {
         return length;
     }
 
+    /**
+     * Searches the index for words that match the input <code>characterInputs</code>.
+     * @param characterInputs Describes given characters and their positions.
+     * @return A set of words that match <code>characterInputs</code>
+     * @throws IllegalArgumentException if given <code>characterInputs's</code> length exceeds <code>this.length</code>
+     */
     public Set<String> search(List<CharacterInput> characterInputs) {
         if (characterInputs == null) {
             throw new IllegalArgumentException("characterInputs may not be null");
@@ -70,15 +76,20 @@ public class MultiCharIndex {
                         "this index's length (" + length + ")");
             }
 
+            // Note: This method doesn't check if the given characterInputs contains two CharacterInput for the same
+            // position
             Set<String> words = charactersIndexes.get(pos).getAll(input.getCharacter());
 
             if (result == null) {
                 result = words;
             }
             else {
+                // retainAll() retains each element in words and discards everything else.
+                // So result <-- intersection of result and words
                 result.retainAll(words);
             }
 
+            // If intersection of inputs given so far is an empty set, then the final result will be empty.
             if (result.isEmpty()) {
                 break;
             }
