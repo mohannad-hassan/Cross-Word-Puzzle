@@ -58,6 +58,8 @@ public class AlphabetIndex {
         if (!characterToWordsIndex.containsKey(c)) {
             return new TreeSet<String>();
         }
-        return getWords(c);
+
+        // Return a copy of the set, to prevent the internal set from being mutated.
+        return new TreeSet<String>(getWords(c));
     }
 }

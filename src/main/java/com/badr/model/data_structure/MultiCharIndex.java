@@ -5,7 +5,6 @@ import com.badr.model.query.CharacterInput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * Indexes input words by characters per each position. Created to facilitate searching words of the same length for
@@ -73,7 +72,7 @@ public class MultiCharIndex {
             Set<String> words = charactersIndexes.get(pos).getAll(input.getCharacter());
 
             if (result == null) {
-                result = new TreeSet<String>(words);
+                result = words;
             }
             else {
                 result.retainAll(words);
