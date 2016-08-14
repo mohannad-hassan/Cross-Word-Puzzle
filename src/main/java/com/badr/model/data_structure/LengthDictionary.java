@@ -1,6 +1,6 @@
 package com.badr.model.data_structure;
 
-import com.badr.model.query.CharacterInput;
+import com.badr.model.query.WordInput;
 
 import java.util.HashMap;
 import java.util.List;
@@ -48,14 +48,11 @@ public class LengthDictionary {
         lengthIndex.add(word);
     }
 
-    public Set<String> search(int wordLength, List<CharacterInput> characterInputs) {
-        if (wordLength < 1) {
-            throw new IllegalArgumentException("length may not be less than 1");
-        }
-        if (characterInputs == null) {
-            throw new IllegalArgumentException("characterInputs may not be null");
+    public Set<String> search(WordInput input) {
+        if (input == null) {
+            throw new IllegalArgumentException("input may not be null");
         }
 
-        return getMultiCharIndex(wordLength).search(characterInputs);
+        return getMultiCharIndex(input.getWordLength()).search(input.getCharacterInputs());
     }
 }

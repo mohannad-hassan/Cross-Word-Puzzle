@@ -1,6 +1,7 @@
 package com.badr.model.data_structure;
 
 import com.badr.model.query.CharacterInput;
+import com.badr.model.query.WordInput;
 import junit.framework.TestCase;
 import org.junit.Before;
 
@@ -23,14 +24,14 @@ public class LengthDictionaryTest extends TestCase {
 
     @org.junit.Test
     public void testSearch() {
-        Set<String> result = dictionary.search("akka".length(), Arrays.asList(new CharacterInput(2, 'k')));
+        Set<String> result = dictionary.search(new WordInput("akka".length(), Arrays.asList(new CharacterInput(2, 'k'))));
 
         assertEquals(result.size(), 2);
         assertTrue(result.contains("akka"));
         assertTrue(result.contains("bake"));
 
-        result = dictionary.search("akka".length(), Arrays.asList(new CharacterInput(2, 'k'),
-                new CharacterInput(0, 'a')));
+        result = dictionary.search(new WordInput("akka".length(), Arrays.asList(new CharacterInput(2, 'k'),
+                new CharacterInput(0, 'a'))));
 
         assertEquals(result.size(), 1);
         assertTrue(result.contains("akka"));
@@ -41,14 +42,14 @@ public class LengthDictionaryTest extends TestCase {
         dictionary.add("dortmund");
         dictionary.add("lake");
 
-        Set<String> result = dictionary.search("akka".length(), Arrays.asList(new CharacterInput(2, 'k')));
+        Set<String> result = dictionary.search(new WordInput("akka".length(), Arrays.asList(new CharacterInput(2, 'k'))));
 
         assertEquals(result.size(), 3);
         assertTrue(result.contains("akka"));
         assertTrue(result.contains("bake"));
         assertTrue(result.contains("lake"));
 
-        result = dictionary.search("dortmund".length(), Arrays.asList(new CharacterInput(0, 'd')));
+        result = dictionary.search(new WordInput("dortmund".length(), Arrays.asList(new CharacterInput(0, 'd'))));
 
         assertEquals(result.size(), 1);
     }
