@@ -15,11 +15,15 @@ public class LengthDictionary {
     private HashMap<Integer, MultiCharIndex> index;
 
     public LengthDictionary(List<String> words) {
+        this();
         if (words == null) {
             throw new IllegalArgumentException("words may not be null");
         }
-        index = new HashMap<>();
         populateWords(words);
+    }
+
+    public LengthDictionary() {
+        index = new HashMap<>();
     }
 
     private void populateWords(List<String> words) {
