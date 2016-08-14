@@ -51,6 +51,10 @@ public class MultiCharIndex {
         }
     }
 
+    public int getLength() {
+        return length;
+    }
+
     public Set<String> search(List<CharacterInput> characterInputs) {
         if (characterInputs == null) {
             throw new IllegalArgumentException("characterInputs may not be null");
