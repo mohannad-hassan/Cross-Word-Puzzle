@@ -1,7 +1,11 @@
 package com.badr.model.data_structure;
 
+import com.badr.model.query.CharacterInput;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by mohannadhassan on 8/14/16.
@@ -47,5 +51,37 @@ public class MultiCharIndex {
                 charactersIndexes.get(i).put(word.charAt(i), word);
             }
         }
+    }
+
+    public Set<String> search(List<CharacterInput> characterInputs) {
+        if (characterInputs == null) {
+            throw new IllegalArgumentException("characterInputs may not be null");
+        }
+
+        Set<String> result = null;
+
+        for (CharacterInput input :
+                characterInputs) {
+            int pos = input.getPosition();
+            if (pos > length) {
+                throw new IllegalArgumentException("CharacterInput has a position (" + pos + ") that doesn't fit with " +
+                        "this index's length (" + length + ")");
+            }
+
+            Set<String> words = charactersIndexes.get(pos).getAll(input.getCharacter());
+
+            if (result == null) {
+                result = new TreeSet<String>(words);
+            }
+            else {
+                result.retainAll(words);
+            }
+
+            if (result.isEmpty()) {
+                break;
+            }
+        }
+
+        return result;
     }
 }
