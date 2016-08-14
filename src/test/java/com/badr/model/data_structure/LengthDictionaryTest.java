@@ -7,18 +7,14 @@ import org.junit.Before;
 import java.util.Arrays;
 import java.util.Set;
 
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 /**
  * Created by mohannadhassan on 8/14/16.
  */
 public class LengthDictionaryTest extends TestCase {
 
-    LengthDictionary dictionary;
+    private LengthDictionary dictionary;
 
-    String [] words = {"abc", "ado", "akka", "bi", "bbc", "ball", "bake", "Electrical"};
+    private String [] words = {"abc", "ado", "akka", "bi", "bbc", "ball", "bake", "Electrical"};
 
     @Before
     public void setUp() throws Exception {

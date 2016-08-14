@@ -13,7 +13,7 @@ public class AlphabetIndex {
     private HashMap<Character, Set<String>> characterToWordsIndex;
 
     public AlphabetIndex() {
-        characterToWordsIndex = new HashMap<Character, Set<String>>();
+        characterToWordsIndex = new HashMap<>();
     }
 
     /**
@@ -42,7 +42,7 @@ public class AlphabetIndex {
         Set<String> words = characterToWordsIndex.get(c);
 
         if (words == null) {
-            words = new TreeSet<String>();
+            words = new TreeSet<>();
             characterToWordsIndex.put(c, words);
         }
 
@@ -56,10 +56,10 @@ public class AlphabetIndex {
      */
     public Set<String> getAll(Character c) {
         if (!characterToWordsIndex.containsKey(c)) {
-            return new TreeSet<String>();
+            return new TreeSet<>();
         }
 
         // Return a copy of the set, to prevent the internal set from being mutated.
-        return new TreeSet<String>(getWords(c));
+        return new TreeSet<>(getWords(c));
     }
 }

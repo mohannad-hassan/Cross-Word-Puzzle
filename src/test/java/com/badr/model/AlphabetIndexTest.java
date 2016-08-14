@@ -10,8 +10,8 @@ import java.util.Set;
  */
 public class AlphabetIndexTest extends junit.framework.TestCase {
 
-    AlphabetIndex index;
-    String [] words
+    private AlphabetIndex index;
+    private String [] words
             = {"abc", "bcd", "cde", "def", "efg",
                "aaa", "bbb", "ccc", "ddd", "eee"};
 

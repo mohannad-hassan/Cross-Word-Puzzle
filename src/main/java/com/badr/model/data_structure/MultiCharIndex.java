@@ -36,7 +36,7 @@ public class MultiCharIndex {
     }
 
     private void instantiateCharactersIndexes() {
-        charactersIndexes = new ArrayList<AlphabetIndex>(length);
+        charactersIndexes = new ArrayList(length);
 
         for (int i = 0; i < length; i++) {
             charactersIndexes.add(new AlphabetIndex());
@@ -63,10 +63,6 @@ public class MultiCharIndex {
         for (int i = 0; i < length; i++) {
             charactersIndexes.get(i).put(word.charAt(i), word);
         }
-    }
-
-    public int getLength() {
-        return length;
     }
 
     /**

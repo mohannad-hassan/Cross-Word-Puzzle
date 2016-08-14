@@ -12,10 +12,10 @@ import java.util.Set;
  */
 public class MultiCharIndexTest extends junit.framework.TestCase {
 
-    MultiCharIndex index;
+    private MultiCharIndex index;
 
-    int length = 3;
-    String [] words =
+    private int length = 3;
+    private String [] words =
             {"abc", "aaa",
             "bcd", "bbb",
             "cde", "ccc",

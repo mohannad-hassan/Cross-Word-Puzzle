@@ -16,7 +16,7 @@ public class LengthDictionary {
         if (words == null) {
             throw new IllegalArgumentException("words may not be null");
         }
-        index = new HashMap<Integer, MultiCharIndex>();
+        index = new HashMap<>();
         populateWords(words);
     }
 
