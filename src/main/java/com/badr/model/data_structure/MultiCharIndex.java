@@ -17,17 +17,22 @@ public class MultiCharIndex {
     private List<AlphabetIndex> charactersIndexes;
 
     public MultiCharIndex(int length, List<String> words) {
-        if (length < 1) {
-            throw new IllegalArgumentException("Illegal value for length: " + length + ". length should be non zero");
-        }
+        this(length);
         if (words == null) {
             throw new IllegalArgumentException("words may not be null");
+        }
+
+        populateWords(words);
+    }
+
+    public MultiCharIndex(int length) {
+        if (length < 1) {
+            throw new IllegalArgumentException("Illegal value for length: " + length + ". length should be non zero");
         }
 
         this.length = length;
 
         instantiateCharactersIndexes();
-        populateWords(words);
     }
 
     private void instantiateCharactersIndexes() {
