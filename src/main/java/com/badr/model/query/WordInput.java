@@ -3,7 +3,7 @@ package com.badr.model.query;
 import java.util.List;
 
 /**
- * Encapsulates a query about a word in a cross-word puzzle. 
+ * Encapsulates a query about a word in a cross-word puzzle.
  * Created by mohannadhassan on 8/14/16.
  */
 public class WordInput {
