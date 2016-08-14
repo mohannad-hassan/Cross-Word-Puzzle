@@ -1,4 +1,4 @@
-package com.badr.model;
+package com.badr.model.data_structure;
 
 import java.util.HashMap;
 import java.util.Set;

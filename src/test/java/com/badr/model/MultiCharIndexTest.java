@@ -1,11 +1,9 @@
 package com.badr.model;
 
+import com.badr.model.data_structure.MultiCharIndex;
 import org.junit.Before;
-import org.omg.CORBA.StringHolder;
 
 import java.util.Arrays;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by mohannadhassan on 8/14/16.
@@ -27,5 +25,5 @@ public class MultiCharIndexTest {
         index = new MultiCharIndex(length, Arrays.asList(words));
     }
 
-    
+
 }

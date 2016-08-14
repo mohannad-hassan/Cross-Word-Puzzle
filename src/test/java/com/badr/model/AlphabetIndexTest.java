@@ -1,5 +1,8 @@
 package com.badr.model;
 
+
+import com.badr.model.data_structure.AlphabetIndex;
+
 import java.util.Set;
 
 /**
