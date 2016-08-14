@@ -12,6 +12,13 @@ public class WordInput {
     private List<CharacterInput> characterInputs;
 
     public WordInput(int wordLength, List<CharacterInput> characterInputs) {
+        if (wordLength < 1) {
+            throw new IllegalArgumentException("length may not be less than 1");
+        }
+        if (characterInputs == null) {
+            throw new IllegalArgumentException("characterInputs may not be null");
+        }
+
         this.wordLength = wordLength;
         this.characterInputs = characterInputs;
     }
