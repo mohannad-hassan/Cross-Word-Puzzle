@@ -44,15 +44,24 @@ public class MultiCharIndex {
     }
 
     private void populateWords(List<String> words) {
-        for (String word : words) {
-            if (word.length() != length) {
-                throw new IllegalArgumentException("Word \"" + word + "\" is not of the same length required for this " +
-                        "index");
-            }
+        if (words == null) {
+            throw new IllegalArgumentException("words may not be null");
+        }
 
-            for (int i = 0; i < length; i++) {
-                charactersIndexes.get(i).put(word.charAt(i), word);
-            }
+        words.forEach(this::add);
+    }
+
+    public void add(String word) {
+        if (word == null) {
+            throw new IllegalArgumentException("word may not be null");
+        }
+        if (word.length() != length) {
+            throw new IllegalArgumentException("Word \"" + word + "\" is not of the same length required for this " +
+                    "index");
+        }
+
+        for (int i = 0; i < length; i++) {
+            charactersIndexes.get(i).put(word.charAt(i), word);
         }
     }
 

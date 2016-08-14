@@ -58,4 +58,19 @@ public class MultiCharIndexTest extends junit.framework.TestCase {
         assertEquals(result.size(), 1);
         assertTrue(result.contains("zxy"));
     }
+
+    @org.junit.Test
+    public void testConsecutiveAdd() {
+        MultiCharIndex index = new MultiCharIndex(3);
+
+        index.add("abc");
+        index.add("aar");
+        index.add("xyz");
+
+        Set<String> result = index.search(Arrays.asList(new CharacterInput(0, 'a')));
+
+        assertEquals(result.size(), 2);
+        assertTrue(result.contains("abc"));
+        assertTrue(result.contains("aar"));
+    }
 }
