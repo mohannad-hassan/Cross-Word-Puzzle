@@ -36,6 +36,7 @@ public class DataReaderTest extends TestCase {
     @org.junit.Test
     public void testSmallDataFile() {
         List<String> words = dataReader.read();
+        words.forEach(System.out::println);
         assertEquals(words.size(), 9);
     }
 }
