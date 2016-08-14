@@ -4,9 +4,6 @@ import junit.framework.TestCase;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-
 /**
  * Created by mohannadhassan on 8/14/16.
  */
@@ -50,7 +47,7 @@ public class QueryParserTest extends TestCase {
         }
     }
 
-    @org.junit.Test()
+    @org.junit.Test
     public void testWhiteSpaceInput() {
         try {
             parser.parse("  --  ");
@@ -58,6 +55,18 @@ public class QueryParserTest extends TestCase {
         catch (MalformedQueryException e) { }
         catch (Exception e) {
             fail("Didn't throw the expected " + MalformedQueryException.class);
+        }
+    }
+
+    @org.junit.Test
+    public void testPlaceHolders() {
+        try {
+            assertEquals(parser.parse("aa__").getCharacterInputs().size(), 2);
+            assertEquals(parser.parse("-a--").getCharacterInputs().size(), 1);
+            assertEquals(parser.parse("-aaaa_").getCharacterInputs().size(), 4);
+        }
+        catch (Exception e) {
+            fail("Caught an exception: " + e);
         }
     }
 }

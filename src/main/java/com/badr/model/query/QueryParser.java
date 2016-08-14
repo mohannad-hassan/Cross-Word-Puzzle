@@ -15,7 +15,7 @@ public class QueryParser {
         ArrayList<CharacterInput> characterInputs = new ArrayList<>();
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
-            if (c != '-') {
+            if (c != '-' && c != '_') {
                 if (Character.isLetter(c)) {
                     characterInputs.add(new CharacterInput(i, c));
                 }
