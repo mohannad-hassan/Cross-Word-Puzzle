@@ -35,4 +35,21 @@ public class LengthDictionaryTest extends TestCase {
         assertEquals(result.size(), 1);
         assertTrue(result.contains("akka"));
     }
+
+    @org.junit.Test
+    public void testAdd() {
+        dictionary.add("dortmund");
+        dictionary.add("lake");
+
+        Set<String> result = dictionary.search("akka".length(), Arrays.asList(new CharacterInput(2, 'k')));
+
+        assertEquals(result.size(), 3);
+        assertTrue(result.contains("akka"));
+        assertTrue(result.contains("bake"));
+        assertTrue(result.contains("lake"));
+
+        result = dictionary.search("dortmund".length(), Arrays.asList(new CharacterInput(0, 'd')));
+
+        assertEquals(result.size(), 1);
+    }
 }

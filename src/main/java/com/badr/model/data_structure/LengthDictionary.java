@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * A dictionary that indexes words by length and by characters per position. Facilitates searching for matches for
+ * cross-word puzzle.
  * Created by mohannadhassan on 8/14/16.
  */
 public class LengthDictionary {
@@ -21,16 +23,7 @@ public class LengthDictionary {
     }
 
     private void populateWords(List<String> words) {
-        for (String word :
-                words) {
-            int length = word.length();
-            if (length == 0) {
-                throw new IllegalArgumentException("input words contain an empty string");
-            }
-
-            MultiCharIndex lengthIndex = getMultiCharIndex(word.length());
-            lengthIndex.add(word);
-        }
+        words.forEach(this::add);
     }
 
     private MultiCharIndex getMultiCharIndex(int length) {
@@ -41,6 +34,18 @@ public class LengthDictionary {
             index.put(length, multiCharIndex);
         }
         return multiCharIndex;
+    }
+
+    public void add(String word) {
+        if (word == null) {
+            throw new IllegalArgumentException("word may not be null");
+        }
+        if (word.length() == 0) {
+            throw new IllegalArgumentException("word may not be an empty string");
+        }
+
+        MultiCharIndex lengthIndex = getMultiCharIndex(word.length());
+        lengthIndex.add(word);
     }
 
     public Set<String> search(int wordLength, List<CharacterInput> characterInputs) {
