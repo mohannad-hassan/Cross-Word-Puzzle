@@ -1,6 +1,7 @@
 package com.badr.model.query;
 
 /**
+ * Encapsulates a query about one character in a word.
  * Created by mohannadhassan on 8/14/16.
  */
 public class CharacterInput {

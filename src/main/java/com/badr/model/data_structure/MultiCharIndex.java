@@ -8,6 +8,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
+ * Indexes input words by characters per each position. Created to facilitate searching words of the same length for
+ * input characters in some positions.
  * Created by mohannadhassan on 8/14/16.
  */
 public class MultiCharIndex {
