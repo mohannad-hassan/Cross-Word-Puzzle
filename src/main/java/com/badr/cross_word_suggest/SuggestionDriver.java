@@ -7,7 +7,6 @@ import com.badr.model.query.QueryParser;
 import com.badr.model.query.WordInput;
 
 import java.io.*;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -22,11 +21,14 @@ public class SuggestionDriver {
 
     private QueryParser queryParser;
 
+    private WordSearchResultPresenter presenter;
+
     public SuggestionDriver(Reader dataFileReadable, Reader userPromptReader) {
         this.dataFileReadable = dataFileReadable;
         this.userPromptReader = new BufferedReader(userPromptReader);
 
         queryParser = new QueryParser();
+        presenter = new WordSearchResultPresenter();
     }
 
     public void start() {
@@ -50,8 +52,6 @@ public class SuggestionDriver {
 
     private void startMenu() {
         printUsage();
-
-        QueryParser parser = new QueryParser();
 
         while (true) {
             String s = readLine();
@@ -123,14 +123,6 @@ public class SuggestionDriver {
         }
 
         Set<String> words = dictionary.search(wordInput);
-
-        System.out.println("Got " + words.size() + " words");
-        int length = words.size() > 100 ? 100 : words.size();
-        System.out.println("Printing first " + length + " words");
-
-        Iterator<String> iterator = words.iterator();
-        while (iterator.hasNext() && length -- > 0) {
-            System.out.println(iterator.next());
-        }
+        presenter.presentResult(words);
     }
 }
